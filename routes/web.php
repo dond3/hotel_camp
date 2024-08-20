@@ -13,6 +13,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
+//Route::get('/', 'App\Http\Controllers\PostController@showPlan');
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
+});
+
+Route::get('/plan', function () {
+    return view('plan');
+});
+
+Route::get('/login', function () {
+    return view('login');
 });
