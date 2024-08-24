@@ -16,12 +16,14 @@ return new class extends Migration
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id');
-            $table->string('payment_status');
-            $table->string('payment_method');
+            $table->enum('payment_status', ['pending', 'authorized', 'captured', 'failed', 'refunded', 'voided']);
+            $table->enum('payment_method', ['credit_card', 'convenience_store_payment']);
+            $table->decimal('base_sub_total', 9, 2);
+            $table->decimal('tax_include_sub_total', 9, 2);
             $table->timestamp('order_date');
             $table->string('order_number')->unique();
             $table->string('tracking_number')->nullable();
-            $table->string('shipping_status');
+            $table->enum('shipping_status', ['unshipped', 'processing', 'shipped', 'out_for_delivery', 'returned']);
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');

@@ -15,19 +15,21 @@ return new class extends Migration
     {
         Schema::create('m_products', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedInteger('product_info_id');
-            $table->string('product_name');
-            $table->decimal('base_price', 8, 2);
-            $table->json('image_info_json');
-            $table->string('product_category');
+            $table->unsignedInteger('genre_id');
+            $table->text('product_name');
+            $table->decimal('base_price', 9, 2);
+            $table->decimal('tax_include_price', 9, 2);
+            $table->text('product_category');
             $table->decimal('point_rate', 5, 2);
             $table->integer('limit_per_person')->nullable();
             $table->integer('estimated_shipping_days')->nullable();
             $table->text('size_info')->nullable();
             $table->text('specifications')->nullable();
-            $table->string('country_of_origin')->nullable();
-            $table->string('copyright_notice')->nullable();
+            $table->text('country_of_origin')->nullable();
+            $table->text('copyright_notice')->nullable();
             $table->timestamps();
+
+            table->foreign('genre_id')->references('id')->on('m_genre')->onDelete('cascade');
         });
     }
 

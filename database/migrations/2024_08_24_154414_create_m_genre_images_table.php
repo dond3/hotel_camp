@@ -13,13 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('m_shipping', function (Blueprint $table) {
+        Schema::create('m_genre_images', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('product_id');
-            $table->decimal('shipping_fee', 9, 2); // 合計8桁、小数点以下2桁
+            $table->unsignedBigInteger('genre_id');
+            $table->text('image_url');
             $table->timestamps();
 
-            $table->foreign('product_id')->references('id')->on('m_products')->onDelete('cascade');
+            $table->foreign('genre_id')->references('id')->on('m_genre')->onDelete('cascade');
         });
     }
 
@@ -30,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('m_shipping');
+        Schema::dropIfExists('m_genre_images');
     }
 };

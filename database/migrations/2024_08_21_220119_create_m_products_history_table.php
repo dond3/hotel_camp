@@ -15,10 +15,10 @@ return new class extends Migration
     {
         Schema::create('m_products_history', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedInteger('product_info_id');
+            $table->unsignedInteger('product_genre_id');
             $table->string('product_name');
-            $table->decimal('base_price', 8, 2);
-            $table->json('image_info_json');
+            $table->decimal('base_price', 9, 2);
+            $table->decimal('tax_include_price', 9, 2);
             $table->string('product_category');
             $table->decimal('point_rate', 5, 2);
             $table->integer('limit_per_person')->nullable();

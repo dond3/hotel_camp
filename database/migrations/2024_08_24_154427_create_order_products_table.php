@@ -13,13 +13,16 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('m_shipping', function (Blueprint $table) {
+        Schema::create('order_products', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('order_id');
             $table->unsignedBigInteger('product_id');
-            $table->decimal('shipping_fee', 9, 2); // 合計8桁、小数点以下2桁
+            $table->decimal('base_price', 9, 2);
+            $table->decimal('tax_include_price', 9, 2);
             $table->timestamps();
 
             $table->foreign('product_id')->references('id')->on('m_products')->onDelete('cascade');
+            $table->foreign('order_id')->references('id')->on('oreders')->onDelete('cascade');
         });
     }
 
@@ -30,6 +33,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('m_shipping');
+        Schema::dropIfExists('order_products');
     }
 };

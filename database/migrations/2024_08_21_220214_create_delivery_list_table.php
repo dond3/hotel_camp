@@ -22,9 +22,9 @@ return new class extends Migration
             $table->string('first_name_furigana');
             $table->string('postal_code');
             $table->string('prefecture');
-            $table->string('address_line_1');
-            $table->string('address_line_2')->nullable();
-            $table->string('address_line_3')->nullable();
+            $table->string('address_line_1')->commnet("市区町村");
+            $table->string('address_line_2')->nullable()->commnet("番地");
+            $table->string('address_line_3')->nullable()->commnet("建物名");
             $table->string('phone_number');
             $table->timestamps();
         });
