@@ -29,7 +29,7 @@ return new class extends Migration
             $table->text('copyright_notice')->nullable();
             $table->timestamps();
 
-            table->foreign('genre_id')->references('id')->on('m_genre')->onDelete('cascade');
+            $table->foreign('genre_id')->references('id')->on('m_genre')->onDelete('cascade');
         });
     }
 
