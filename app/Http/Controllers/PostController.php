@@ -1,11 +1,14 @@
-use App\Plan;
+<?php
 
-public function showPlan(Request $request) {
+namespace App\Http\Controllers;
 
-    $plan = new Plan;
+use Illuminate\Http\Request;
 
-    $data = $plan->find(1);
-    //$data = '1';
-    return view('index', compact('data'));
+class PostController extends Controller
+{
 
+
+    public function index(){
+        return 'こんにちは、世界！';
+    }
 }

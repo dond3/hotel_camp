@@ -15,9 +15,9 @@ use Illuminate\Support\Facades\Route;
 
 
 //Route::get('/', 'App\Http\Controllers\PostController@showPlan');
-Route::get('/', function () {
-    return view('index');
-});
+// Route::get('/', function () {
+//     return view('index');
+// });
 
 Route::get('/plan', function () {
     return view('plan');
@@ -26,3 +26,9 @@ Route::get('/plan', function () {
 Route::get('/login', function () {
     return view('login');
 });
+
+Route::get('/', 'App\Http\Controllers\PostController@index');
+
+// Route::get('/', function () {
+//     return view('index');
+// });
