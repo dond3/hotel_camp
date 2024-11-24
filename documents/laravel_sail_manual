@@ -17,3 +17,6 @@ http://localhost:8573/
 
 ■pgadminアクセス
 http://localhost:8888/
+
+■artisanコマンドパス
+./vendor/bin/sail artisan
