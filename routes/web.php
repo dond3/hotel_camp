@@ -24,8 +24,9 @@ Route::get('/login', function () {
     return view('login');
 });
 
-
 Route::get('/', 'PostController@index');
+
+Route::get('/{id}/products', 'PostController@product')->name("products");
 
 // Route::get('/view', function () {
 //     return view('login');
