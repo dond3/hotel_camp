@@ -8,8 +8,9 @@
 3. 下記コマンドで起動
     ./vendor/bin/sail up
 
+    cd /mnt/c/Users/mori/Desktop/git/example-app$
 
-    cd example-app && ./vendor/bin/sail up
+    cd /Users/mori/Desktop/git/example-app && ./vendor/bin/sail up
 
 ■アクセス方法
 下記localhostにアクセス
